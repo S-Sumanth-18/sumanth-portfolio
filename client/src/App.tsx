@@ -7,16 +7,11 @@ import NotFound from "@/pages/not-found";
 
 function Router() {
   return (
-    <div className="app-container">
-      <Switch>
-        {/* These are your two main "Showcase" pages */}
-        <Route path="/" component={Home} />
-        <Route path="/projects" component={Projects} />
-        
-        {/* Fallback for broken links */}
-        <Route component={NotFound} />
-      </Switch>
-    </div>
+    <Switch>
+      <Route path="/" component={Home} />
+      <Route path="/projects" component={Projects} />
+      <Route component={NotFound} />
+    </Switch>
   );
 }
 
