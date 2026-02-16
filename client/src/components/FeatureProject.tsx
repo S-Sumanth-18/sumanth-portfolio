@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from "recharts";
 import { Activity, Upload, Eye, Brain, Github, ExternalLink } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "../lib/utils";
 
 const performanceData = [
   { name: 'EfficientNetB0', accuracy: 90, color: '#3b82f6' },
