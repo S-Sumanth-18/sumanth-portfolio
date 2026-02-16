@@ -2,15 +2,14 @@ import { Hero } from "../components/Hero";
 import { FeatureProject } from "../components/FeatureProject";
 import { CodeTerminal } from "../components/Terminal";
 import { Navbar } from "../components/Navbar";
-import { SKILLS } from "@/lib/data";
+import { SKILLS } from "../lib/data"; // Fixed alias to relative path
 import { motion } from "framer-motion";
 import { Book, Code, Database, Server } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "../lib/utils"; // Fixed alias to relative path
 
 export default function Home() {
   const skills = SKILLS;
 
-  // Group skills manually if API returns flat list, or use as is
   const languages = skills?.filter(s => s.category === "Languages") || [];
   const aiMl = skills?.filter(s => s.category === "AI/ML") || [];
   const web = skills?.filter(s => s.category === "Web") || [];
@@ -18,9 +17,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background pb-32">
       <Navbar />
-      
       <Hero />
-      
       <FeatureProject />
       
       {/* Skills Section */}
@@ -117,8 +114,7 @@ function SkillCard({ title, icon: Icon, skills, delay, featured }: { title: stri
             {skill.name}
           </span>
         )) : (
-          // Fallback if data hasn't loaded or DB is empty
-          ["Java", "Python", "C++"].map(s => (
+          ["Java", "Python", "SQL"].map(s => (
              <span key={s} className="px-3 py-1 rounded-md text-sm font-medium bg-slate-800/50 border border-slate-700 text-slate-500">
                {s}
              </span>

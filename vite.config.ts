@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      // This absolute path mapping helps Rollup find your components during build
+      // Definitive path mapping to resolve alias errors
       "@": path.resolve(__dirname, "./client/src"),
     },
   },
