@@ -1,10 +1,11 @@
 import { Navbar } from "@/components/Navbar";
-import { useProjects } from "@/hooks/use-content";
+import { PROJECTS, type Project } from "@/lib/data";
 import { motion } from "framer-motion";
-import { Github, ExternalLink, ArrowUpRight } from "lucide-react";
+import { Github, ExternalLink } from "lucide-react";
 
 export default function Projects() {
-  const { data: projects, isLoading } = useProjects();
+  const projects = PROJECTS;
+  const isLoading = false;
 
   return (
     <div className="min-h-screen bg-background pb-32 pt-24 px-4">
@@ -30,7 +31,7 @@ export default function Projects() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects?.map((project, idx) => (
+            {projects?.map((project, idx: number) => (
               <motion.div
                 key={project.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -40,8 +41,6 @@ export default function Projects() {
               >
                 <div className="relative h-48 overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent z-10" />
-                  {/* Project tech abstract background placeholder - using unsplash */}
-                  {/* abstract technology network background */}
                   <img 
                     src={project.imageUrl || `https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800`}
                     alt={project.title}
@@ -65,14 +64,15 @@ export default function Projects() {
                   </p>
                   
                   <div className="flex flex-wrap gap-2 mb-6">
-                    {project.techStack.slice(0, 3).map((tech) => (
+                    {/* FIXED LINE 47 BELOW */}
+                    {(project.techStack || []).slice(0, 3).map((tech) => (
                       <span key={tech} className="text-xs px-2 py-1 rounded bg-slate-800 border border-slate-700 text-slate-300">
                         {tech}
                       </span>
                     ))}
-                    {project.techStack.length > 3 && (
+                    {(project.techStack?.length || 0) > 3 && (
                       <span className="text-xs px-2 py-1 rounded bg-slate-800 border border-slate-700 text-slate-300">
-                        +{project.techStack.length - 3}
+                        +{(project.techStack?.length || 0) - 3}
                       </span>
                     )}
                   </div>
