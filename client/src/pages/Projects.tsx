@@ -1,5 +1,5 @@
-import { Navbar } from "@/components/Navbar";
-import { PROJECTS, type Project } from "@/lib/data";
+import { Navbar } from "../components/Navbar";
+import { PROJECTS, type Project } from "../lib/data";
 import { motion } from "framer-motion";
 import { Github, ExternalLink } from "lucide-react";
 

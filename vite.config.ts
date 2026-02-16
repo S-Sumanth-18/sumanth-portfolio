@@ -6,12 +6,14 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      // Definitive path mapping to resolve alias errors
+      // Use path.resolve to provide an absolute path to the src folder
       "@": path.resolve(__dirname, "./client/src"),
     },
   },
+  // Ensure Vite is looking inside the 'client' folder for index.html
   root: "client",
   build: {
+    // Put the final build in the 'dist' folder at the very root
     outDir: "../dist",
     emptyOutDir: true,
   },
