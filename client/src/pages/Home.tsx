@@ -1,7 +1,7 @@
-import { Hero } from "@/components/Hero";
-import { FeatureProject } from "@/components/FeatureProject";
-import { CodeTerminal } from "@/components/Terminal";
-import { Navbar } from "@/components/Navbar";
+import { Hero } from "../components/Hero";
+import { FeatureProject } from "../components/FeatureProject";
+import { CodeTerminal } from "../components/Terminal";
+import { Navbar } from "../components/Navbar";
 import { SKILLS } from "@/lib/data";
 import { motion } from "framer-motion";
 import { Book, Code, Database, Server } from "lucide-react";

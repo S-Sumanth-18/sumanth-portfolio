@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      // Using an absolute path to ensure Vercel's Linux server finds it
+      // This absolute path mapping helps Rollup find your components during build
       "@": path.resolve(__dirname, "./client/src"),
     },
   },
