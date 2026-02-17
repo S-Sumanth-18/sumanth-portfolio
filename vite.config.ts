@@ -5,8 +5,8 @@ import path from "path";
 export default defineConfig({
   plugins: [
     react({
-      // This tells the compiler to automatically handle JSX without explicit imports
-      jsxRuntime: 'automatic', 
+      // Switching to 'classic' forces the compiler to use React.createElement
+      jsxRuntime: 'classic', 
     }),
   ],
   resolve: {
