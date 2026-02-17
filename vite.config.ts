@@ -3,8 +3,12 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 
 export default defineConfig({
-  // The 'react' plugin handles the JSX transformation automatically
-  plugins: [react()], 
+  plugins: [
+    react({
+      // This tells the compiler to automatically handle JSX without explicit imports
+      jsxRuntime: 'automatic', 
+    }),
+  ],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./client/src"),
@@ -14,9 +18,5 @@ export default defineConfig({
   build: {
     outDir: "../dist",
     emptyOutDir: true,
-  },
-  // This explicitly tells the compiler to provide 'React' to every file
-  esbuild: {
-    jsxInject: `import React from 'react'`,
   },
 });
