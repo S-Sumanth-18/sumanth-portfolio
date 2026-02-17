@@ -1,3 +1,4 @@
+import React from 'react';
 import { Hero } from "../components/Hero";
 import { FeatureProject } from "../components/FeatureProject";
 import { CodeTerminal } from "../components/Terminal";

@@ -3,7 +3,8 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 
 export default defineConfig({
-  plugins: [react()], // This plugin is supposed to handle the React definition
+  // The 'react' plugin handles the JSX transformation automatically
+  plugins: [react()], 
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./client/src"),
@@ -14,7 +15,7 @@ export default defineConfig({
     outDir: "../dist",
     emptyOutDir: true,
   },
-  // ADD THIS SECTION TO FIX THE "REACT IS NOT DEFINED" ERROR
+  // This explicitly tells the compiler to provide 'React' to every file
   esbuild: {
     jsxInject: `import React from 'react'`,
   },

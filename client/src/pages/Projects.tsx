@@ -1,3 +1,4 @@
+import React from 'react';
 import { Navbar } from "../components/Navbar";
 import { PROJECTS, type Project } from "../lib/data";
 import { motion } from "framer-motion";
