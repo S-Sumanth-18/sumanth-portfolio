@@ -1,5 +1,5 @@
-import { Navbar } from "@/components/Navbar";
-import { useSkills } from "@/hooks/use-content";
+import { Navbar } from "../components/Navbar";
+import { useSkills } from "../hooks/use-content";
 import { motion } from "framer-motion";
 
 export default function Skills() {
