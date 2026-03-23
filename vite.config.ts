@@ -4,10 +4,7 @@ import path from "path";
 
 export default defineConfig({
   plugins: [
-    react({
-      // Switching to 'classic' forces the compiler to use React.createElement
-      jsxRuntime: 'classic', 
-    }),
+    react(),
   ],
   resolve: {
     alias: {
