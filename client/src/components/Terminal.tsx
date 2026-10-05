@@ -6,30 +6,30 @@ import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 SyntaxHighlighter.registerLanguage('javascript', js);
 
-const codeSnippet = `// 0/1 Knapsack Problem - Dynamic Programming
-function knapSack(capacity, weights, values, n) {
-    // Initialize DP table
-    let i, w;
-    let K = new Array(n + 1);
+const codeSnippet = `// K.N.I.G.H.T. CORE — SECURE SYSTEM INITIALIZATION
+const operator = "SUMANTH";
+const system = "K.N.I.G.H.T.";
+const mission = "BUILD • LEARN • BECOME";
+
+const modules = [
+    "JAVA", "DSA", "REACT",
+    "SPRING BOOT", "AI/ML", "DEVOPS"
+];
+
+const initialize = () => {
+    console.log("[AUTH] Operator identified:", operator);
+    console.log("[CORE] Initializing", system);
+    console.log("[LOAD] Activating core modules...");
     
-    for (i = 0; i <= n; i++) {
-        K[i] = new Array(capacity + 1);
-        for (w = 0; w <= capacity; w++) {
-            if (i === 0 || w === 0)
-                K[i][w] = 0;
-            else if (weights[i - 1] <= w)
-                K[i][w] = Math.max(
-                    values[i - 1] + K[i - 1][w - weights[i - 1]],
-                    K[i - 1][w]
-                );
-            else
-                K[i][w] = K[i - 1][w];
-        }
-    }
-    
-    // Optimal value
-    return K[n][capacity];
-}`;
+    modules.forEach(module => {
+        console.log("[ONLINE]", module);
+    });
+
+    console.log("[STATUS] All systems operational.");
+    return "SYSTEM READY // WELCOME TO SUMANTH'S COMMAND CENTER";
+};
+
+initialize();`;
 
 export function CodeTerminal() {
   const [copied, setCopied] = useState(false);

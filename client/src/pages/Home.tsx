@@ -47,8 +47,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">Code Sample</h2>
           <p className="text-slate-400 mb-8">
-            A JavaScript example of the 0/1 Knapsack dynamic programming problem, included in this portfolio.
-          </p>
+K.N.I.G.H.T. core initialization protocol — powering Sumanth's personal command system.          </p>
           <CodeTerminal />
         </div>
       </section>
