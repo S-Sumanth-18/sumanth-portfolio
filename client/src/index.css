@@ -5,34 +5,34 @@
 @tailwind utilities;
 
 :root {
-  /* Midnight Blue / Electric Cyan Theme */
-  --background: 222 47% 11%;
-  --foreground: 210 40% 98%;
+  /* Near-black, graphite, and metallic silver theme */
+  --background: 0 0% 6%;
+  --foreground: 0 0% 96%;
 
-  --card: 222 47% 15%;
-  --card-foreground: 210 40% 98%;
+  --card: 0 0% 9%;
+  --card-foreground: 0 0% 96%;
 
-  --popover: 222 47% 15%;
-  --popover-foreground: 210 40% 98%;
+  --popover: 0 0% 9%;
+  --popover-foreground: 0 0% 96%;
 
-  --primary: 180 100% 50%; /* Electric Cyan */
-  --primary-foreground: 222 47% 11%;
+  --primary: 0 0% 78%;
+  --primary-foreground: 0 0% 7%;
 
-  --secondary: 217 33% 17%;
-  --secondary-foreground: 210 40% 98%;
+  --secondary: 0 0% 16%;
+  --secondary-foreground: 0 0% 94%;
 
-  --muted: 217 33% 17%;
-  --muted-foreground: 215 20% 65%;
+  --muted: 0 0% 16%;
+  --muted-foreground: 0 0% 65%;
 
-  --accent: 180 100% 50%;
-  --accent-foreground: 222 47% 11%;
+  --accent: 0 0% 82%;
+  --accent-foreground: 0 0% 8%;
 
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
+  --destructive: 0 0% 24%;
+  --destructive-foreground: 0 0% 96%;
 
-  --border: 217 33% 20%;
-  --input: 217 33% 20%;
-  --ring: 180 100% 50%;
+  --border: 0 0% 19%;
+  --input: 0 0% 19%;
+  --ring: 0 0% 78%;
 
   --radius: 0.75rem;
 
@@ -51,8 +51,8 @@
     @apply bg-background text-foreground antialiased selection:bg-cyan-500/30 selection:text-cyan-200;
     font-family: var(--font-body);
     background-image: 
-      radial-gradient(circle at 15% 50%, rgba(0, 255, 255, 0.08), transparent 25%),
-      radial-gradient(circle at 85% 30%, rgba(25, 25, 112, 0.4), transparent 50%);
+      radial-gradient(circle at 15% 50%, rgba(220, 220, 220, 0.055), transparent 25%),
+      radial-gradient(circle at 85% 30%, rgba(180, 180, 180, 0.06), transparent 50%);
     background-attachment: fixed;
   }
 
@@ -68,14 +68,14 @@
 
 .boot-grid {
   background-image:
-    linear-gradient(rgba(103, 232, 249, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(103, 232, 249, 0.08) 1px, transparent 1px);
+    linear-gradient(rgba(212, 212, 216, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 212, 216, 0.08) 1px, transparent 1px);
   background-size: 48px 48px;
   mask-image: radial-gradient(ellipse at center, black 10%, transparent 78%);
 }
 
 .boot-scan {
-  background: linear-gradient(180deg, transparent, rgba(103, 232, 249, 0.18), transparent);
+  background: linear-gradient(180deg, transparent, rgba(212, 212, 216, 0.16), transparent);
   animation: boot-scan 2.8s linear infinite;
   pointer-events: none;
 }
@@ -106,11 +106,11 @@
   }
   
   .glow-text {
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    text-shadow: 0 0 10px rgba(212, 212, 216, 0.38);
   }
   
   .glow-border {
-    box-shadow: 0 0 15px -3px rgba(0, 255, 255, 0.2);
+    box-shadow: 0 0 15px -3px rgba(212, 212, 216, 0.16);
   }
 
   .text-gradient {

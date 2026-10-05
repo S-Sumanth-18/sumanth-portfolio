@@ -49,7 +49,7 @@ export function BootSequence({ onComplete }: { onComplete: () => void }) {
       onAnimationComplete={() => {
         if (isClosing) onComplete();
       }}
-      className="boot-screen fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-[#070d17] px-5 py-8 text-slate-100"
+      className="boot-screen fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-[#0b0b0d] px-5 py-8 text-slate-100"
     >
       <div aria-hidden="true" className="boot-grid absolute inset-0 opacity-30" />
       <div aria-hidden="true" className="boot-scan absolute inset-x-0 top-0 h-32 opacity-30" />
@@ -109,7 +109,7 @@ export function BootSequence({ onComplete }: { onComplete: () => void }) {
             className="h-1 overflow-hidden bg-slate-800"
           >
             <motion.div
-              className="h-full bg-cyan-300 shadow-[0_0_14px_rgba(103,232,249,0.75)]"
+              className="h-full bg-cyan-300 shadow-[0_0_14px_rgba(212,212,216,0.55)]"
               animate={{ width: `${progress}%` }}
               transition={{ duration: 0.12, ease: "linear" }}
             />

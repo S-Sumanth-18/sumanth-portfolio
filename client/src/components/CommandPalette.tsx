@@ -67,7 +67,7 @@ export function CommandPalette({ onOpenKnight }: CommandPaletteProps) {
       </button>
 
       <Dialog open={isOpen} onOpenChange={(open) => { setIsOpen(open); if (!open) setQuery(""); }}>
-        <DialogContent className="top-[12vh] max-h-[76dvh] w-[calc(100%-1.25rem)] max-w-xl translate-y-0 overflow-hidden border-cyan-400/20 bg-[#080f1c] p-0 text-slate-100 shadow-[0_24px_100px_rgba(0,0,0,0.55)]">
+        <DialogContent className="top-[12vh] max-h-[76dvh] w-[calc(100%-1.25rem)] max-w-xl translate-y-0 overflow-hidden border-cyan-400/20 bg-[#111214] p-0 text-slate-100 shadow-[0_24px_100px_rgba(0,0,0,0.55)]">
           <DialogTitle className="sr-only">Portfolio command palette</DialogTitle>
           <DialogDescription className="sr-only">
             Search commands to navigate portfolio sections or open K.N.I.G.H.T.

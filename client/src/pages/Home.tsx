@@ -85,7 +85,7 @@ function SkillCard({ title, icon: Icon, skills, delay, featured }: { title: stri
       className={cn(
         "p-6 rounded-2xl border transition-all duration-300 hover:-translate-y-1",
         featured 
-          ? "bg-cyan-900/10 border-cyan-500/30 shadow-[0_0_30px_rgba(0,255,255,0.1)]" 
+          ? "bg-cyan-900/10 border-cyan-500/30 shadow-[0_0_30px_rgba(212,212,216,0.1)]"
           : "glass-card border-white/5 hover:border-white/10"
       )}
     >

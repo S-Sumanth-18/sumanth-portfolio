@@ -1,5 +1,33 @@
 import type { Config } from "tailwindcss";
 
+const graphitePalette = {
+  50: "#fafafa",
+  100: "#f4f4f5",
+  200: "#e4e4e7",
+  300: "#d4d4d8",
+  400: "#a1a1aa",
+  500: "#71717a",
+  600: "#52525b",
+  700: "#3f3f46",
+  800: "#27272a",
+  900: "#18181b",
+  950: "#09090b",
+};
+
+const silverPalette = {
+  50: "#fafafa",
+  100: "#f4f4f5",
+  200: "#e4e4e7",
+  300: "#d4d4d8",
+  400: "#c4c4c9",
+  500: "#a1a1aa",
+  600: "#85858d",
+  700: "#71717a",
+  800: "#52525b",
+  900: "#3f3f46",
+  950: "#27272a",
+};
+
 export default {
   darkMode: ["class"],
   content: ["./client/index.html", "./client/src/**/*.{js,jsx,ts,tsx}"],
@@ -11,6 +39,9 @@ export default {
         sm: ".1875rem", /* 3px */
       },
       colors: {
+        cyan: silverPalette,
+        blue: silverPalette,
+        slate: graphitePalette,
         // Flat / base colors (regular buttons)
         background: "hsl(var(--background) / <alpha-value>)",
         foreground: "hsl(var(--foreground) / <alpha-value>)",

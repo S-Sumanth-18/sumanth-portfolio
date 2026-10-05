@@ -1,10 +1,21 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, type CSSProperties } from "react";
 import { Copy, Check } from "lucide-react";
 import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
 import js from 'react-syntax-highlighter/dist/esm/languages/hljs/javascript';
-import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 SyntaxHighlighter.registerLanguage('javascript', js);
+
+const graphiteSyntax: Record<string, CSSProperties> = {
+  hljs: { color: "#d4d4d8", background: "transparent" },
+  "hljs-comment": { color: "#71717a", fontStyle: "italic" },
+  "hljs-keyword": { color: "#e4e4e7", fontWeight: "bold" },
+  "hljs-string": { color: "#a1a1aa" },
+  "hljs-title": { color: "#f4f4f5" },
+  "hljs-built_in": { color: "#d4d4d8" },
+  "hljs-literal": { color: "#e4e4e7" },
+  "hljs-number": { color: "#a1a1aa" },
+  "hljs-variable": { color: "#d4d4d8" },
+};
 
 const codeSnippet = `// K.N.I.G.H.T. CORE — SECURE SYSTEM INITIALIZATION
 const operator = "SUMANTH";
@@ -56,12 +67,12 @@ export function CodeTerminal() {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto rounded-lg overflow-hidden border border-slate-800 shadow-2xl bg-[#011627] font-mono text-sm my-12">
-      <div className="flex items-center justify-between px-4 py-2 bg-[#011627] border-b border-slate-800">
+    <div className="w-full max-w-2xl mx-auto rounded-lg overflow-hidden border border-slate-800 shadow-2xl bg-[#101113] font-mono text-sm my-12">
+      <div className="flex items-center justify-between px-4 py-2 bg-[#101113] border-b border-slate-800">
         <div className="flex gap-2">
-          <div className="w-3 h-3 rounded-full bg-red-500/80" />
-          <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-          <div className="w-3 h-3 rounded-full bg-green-500/80" />
+          <div className="w-3 h-3 rounded-full bg-zinc-500/80" />
+          <div className="w-3 h-3 rounded-full bg-zinc-600/80" />
+          <div className="w-3 h-3 rounded-full bg-zinc-400/80" />
         </div>
         <div className="text-slate-500 text-xs">algo_visualizer.js</div>
         <button 
@@ -74,10 +85,10 @@ export function CodeTerminal() {
       <div className="p-4 overflow-x-auto max-h-[400px]">
         <SyntaxHighlighter 
           language="javascript" 
-          style={nightOwl}
+          style={graphiteSyntax}
           customStyle={{ background: 'transparent', padding: 0 }}
           showLineNumbers
-          lineNumberStyle={{ color: '#4b5563', minWidth: '2em', paddingRight: '1em' }}
+          lineNumberStyle={{ color: '#71717a', minWidth: '2em', paddingRight: '1em' }}
         >
           {typedCode}
         </SyntaxHighlighter>

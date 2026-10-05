@@ -136,7 +136,7 @@ export default function Projects() {
 
       <Dialog open={Boolean(selectedProject)} onOpenChange={(open) => { if (!open) setSelectedProject(null); }}>
         {selectedProject && (
-          <DialogContent className="max-h-[85dvh] w-[calc(100%-1.25rem)] max-w-2xl overflow-y-auto border-cyan-400/20 bg-[#080f1c] text-slate-100">
+          <DialogContent className="max-h-[85dvh] w-[calc(100%-1.25rem)] max-w-2xl overflow-y-auto border-cyan-400/20 bg-[#111214] text-slate-100">
             <DialogHeader className="pr-8 text-left">
               <p className="font-mono text-[10px] tracking-[0.18em] text-cyan-400">PROJECT FILE / {String(selectedProject.id).padStart(2, "0")}</p>
               <DialogTitle className="mt-2 text-2xl font-bold sm:text-3xl">{selectedProject.title}</DialogTitle>

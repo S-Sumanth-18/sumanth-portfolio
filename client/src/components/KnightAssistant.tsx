@@ -71,7 +71,7 @@ export function KnightAssistant({ open, onOpenChange, initialQuestion, onInitial
         </button>
       </DialogTrigger>
 
-      <DialogContent className="flex max-h-[min(82dvh,680px)] w-[calc(100%-1.25rem)] max-w-xl flex-col gap-0 overflow-hidden border-cyan-400/20 bg-[#080f1c] p-0 text-slate-100">
+      <DialogContent className="flex max-h-[min(82dvh,680px)] w-[calc(100%-1.25rem)] max-w-xl flex-col gap-0 overflow-hidden border-cyan-400/20 bg-[#111214] p-0 text-slate-100">
         <DialogHeader className="border-b border-cyan-400/15 px-5 py-4 pr-12 text-left">
           <DialogTitle className="flex items-center gap-2 font-mono text-base tracking-wide text-cyan-200">
             <Bot className="h-5 w-5" aria-hidden="true" /> K.N.I.G.H.T.

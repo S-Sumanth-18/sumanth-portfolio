@@ -37,7 +37,7 @@ export function Navbar() {
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   />
                 )}
-                <Icon className={cn("w-5 h-5 md:w-6 md:h-6 mb-1 relative z-10", isActive && "drop-shadow-[0_0_8px_rgba(0,255,255,0.5)]")} />
+                <Icon className={cn("w-5 h-5 md:w-6 md:h-6 mb-1 relative z-10", isActive && "drop-shadow-[0_0_8px_rgba(212,212,216,0.38)]")} />
                 <span className="text-[10px] md:text-xs font-medium relative z-10">{item.label}</span>
               </div>
             </Link>
