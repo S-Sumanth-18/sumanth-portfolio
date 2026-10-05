@@ -3,17 +3,17 @@ import { Hero } from "../components/Hero";
 import { FeatureProject } from "../components/FeatureProject";
 import { CodeTerminal } from "../components/Terminal";
 import { Navbar } from "../components/Navbar";
-import { SKILLS } from "../lib/data"; // Fixed alias to relative path
+import { SKILLS, type Skill } from "../lib/data";
 import { motion } from "framer-motion";
 import { Book, Code, Database, Server } from "lucide-react";
-import { cn } from "../lib/utils"; // Fixed alias to relative path
+import { cn } from "../lib/utils";
 
 export default function Home() {
   const skills = SKILLS;
 
   const languages = skills?.filter(s => s.category === "Languages") || [];
-  const aiMl = skills?.filter(s => s.category === "AI/ML") || [];
-  const web = skills?.filter(s => s.category === "Web") || [];
+  const ui = skills?.filter(s => s.category === "UI") || [];
+  const tooling = skills?.filter(s => s.category === "Tooling") || [];
 
   return (
     <div className="min-h-screen bg-background pb-32">
@@ -30,25 +30,24 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">Technical Arsenal</h2>
-            <p className="text-slate-400">Tools and technologies I use to build the future</p>
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">Technologies in This Portfolio</h2>
+            <p className="text-slate-400">A snapshot of the tools used in this site's codebase.</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <SkillCard title="Languages" icon={Code} skills={languages} delay={0} />
-            <SkillCard title="AI & Machine Learning" icon={Book} skills={aiMl} delay={0.2} featured />
-            <SkillCard title="Full Stack Web" icon={Server} skills={web} delay={0.4} />
+            <SkillCard title="UI" icon={Server} skills={ui} delay={0.2} featured />
+            <SkillCard title="Libraries & Tooling" icon={Database} skills={tooling} delay={0.4} />
           </div>
         </div>
       </section>
 
-      {/* DSA Section */}
+      {/* Code sample section */}
       <section className="py-20 px-4 bg-slate-900/30 border-y border-slate-800">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4">Algorithmic Mastery</h2>
+          <h2 className="text-3xl font-bold mb-4">Code Sample</h2>
           <p className="text-slate-400 mb-8">
-            Solving complex problems with optimized solutions. <br/>
-            Strong grasp of Data Structures and Algorithms.
+            A JavaScript example of the 0/1 Knapsack dynamic programming problem, included in this portfolio.
           </p>
           <CodeTerminal />
         </div>
@@ -61,27 +60,23 @@ export default function Home() {
             <Book className="w-32 h-32" />
           </div>
           <span className="inline-block px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-bold mb-4 border border-blue-500/30">
-            PUBLICATION
+            DETAILS NEEDED
           </span>
-          <h2 className="text-2xl md:text-3xl font-bold mb-4 text-white">IEEE Research Contribution</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 text-white">Research & Publications</h2>
           <p className="text-slate-300 mb-6 leading-relaxed text-lg">
-            Contributing to the scientific community with research on "Optimized CNN Architectures for Medical Imaging." 
-            This paper explores novel approaches to reducing false positives in X-ray diagnostics using ensemble learning methods.
+            No verified research or publication details have been provided yet. Add a title, venue, status, and link here if applicable.
           </p>
-          <button className="px-6 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-colors text-white">
-            Read Abstract
-          </button>
         </div>
       </section>
 
       <footer className="text-center text-slate-500 text-sm py-8">
-        <p>© {new Date().getFullYear()} Sumanth. Built with React, Tailwind & Deep Learning.</p>
+        <p>© {new Date().getFullYear()} Sumanth · B.Tech IT Student · Built with React, TypeScript & Tailwind CSS.</p>
       </footer>
     </div>
   );
 }
 
-function SkillCard({ title, icon: Icon, skills, delay, featured }: { title: string, icon: any, skills: any[], delay: number, featured?: boolean }) {
+function SkillCard({ title, icon: Icon, skills, delay, featured }: { title: string, icon: React.ComponentType<{ className?: string }>, skills: Skill[], delay: number, featured?: boolean }) {
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
@@ -102,7 +97,7 @@ function SkillCard({ title, icon: Icon, skills, delay, featured }: { title: stri
         <h3 className="text-xl font-bold">{title}</h3>
       </div>
       <div className="flex flex-wrap gap-2">
-        {skills.length > 0 ? skills.map((skill) => (
+        {skills.map((skill) => (
           <span 
             key={skill.id} 
             className={cn(
@@ -114,13 +109,7 @@ function SkillCard({ title, icon: Icon, skills, delay, featured }: { title: stri
           >
             {skill.name}
           </span>
-        )) : (
-          ["Java", "Python", "SQL"].map(s => (
-             <span key={s} className="px-3 py-1 rounded-md text-sm font-medium bg-slate-800/50 border border-slate-700 text-slate-500">
-               {s}
-             </span>
-          ))
-        )}
+        ))}
       </div>
     </motion.div>
   );

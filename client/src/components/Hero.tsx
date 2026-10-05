@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Github, Linkedin, Twitter } from "lucide-react";
+import { ArrowRight, Github, Linkedin } from "lucide-react";
 import { Link } from "wouter";
 
 export function Hero() {
@@ -20,14 +20,14 @@ export function Hero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
             </span>
-            Open to Work
+            B.Tech IT Student
           </div>
           
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-4">
             Hi, I'm <span className="text-gradient">Sumanth</span>
           </h1>
           <h2 className="text-2xl md:text-4xl text-slate-300 font-light font-display">
-            AI/ML Developer & <br className="md:hidden" /> Full-Stack Engineer
+            Information Technology Student
           </h2>
         </motion.div>
 
@@ -37,8 +37,7 @@ export function Hero() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.5 }}
         >
-          Specializing in <span className="text-cyan-400 font-medium">Deep Learning</span> architectures and complex <span className="text-cyan-400 font-medium">Data Structures & Algorithms</span>. 
-          Building the bridge between intelligent models and robust web applications.
+          I'm a B.Tech IT student using this portfolio to document projects I build and the technologies present in my work.
         </motion.p>
 
         <motion.div 
@@ -65,15 +64,14 @@ export function Hero() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
         >
-          <a href="#" className="text-slate-500 hover:text-cyan-400 transition-colors">
+          <span className="flex items-center gap-2 text-slate-500" title="GitHub profile URL not provided">
             <Github className="w-6 h-6" />
-          </a>
-          <a href="#" className="text-slate-500 hover:text-cyan-400 transition-colors">
+            <span className="text-xs">GitHub URL not provided</span>
+          </span>
+          <span className="flex items-center gap-2 text-slate-500" title="LinkedIn profile URL not provided">
             <Linkedin className="w-6 h-6" />
-          </a>
-          <a href="#" className="text-slate-500 hover:text-cyan-400 transition-colors">
-            <Twitter className="w-6 h-6" />
-          </a>
+            <span className="text-xs">LinkedIn URL not provided</span>
+          </span>
         </motion.div>
       </div>
     </section>

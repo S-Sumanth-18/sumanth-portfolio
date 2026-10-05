@@ -6,9 +6,9 @@ export default function Skills() {
   const { data: skills } = useSkills();
   
   const categories = [
-    { id: "AI/ML", label: "Artificial Intelligence", desc: "Building intelligent systems with Deep Learning" },
-    { id: "Languages", label: "Programming Languages", desc: "Core languages for robust development" },
-    { id: "Web", label: "Full Stack Web", desc: "Modern web technologies and frameworks" }
+    { id: "Languages", label: "Languages", desc: "Languages used in this site's source" },
+    { id: "UI", label: "UI", desc: "Interface libraries used in this site" },
+    { id: "Tooling", label: "Libraries & Tooling", desc: "Build and interface tools in this codebase" }
   ];
 
   return (
@@ -21,9 +21,9 @@ export default function Skills() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">Skills Matrix</h1>
+          <h1 className="text-4xl md:text-6xl font-bold mb-4">Portfolio Stack</h1>
           <p className="text-slate-400 max-w-2xl mx-auto text-lg">
-            A comprehensive overview of my technical capabilities and proficiency levels.
+            Technologies present in this site's source code. This list does not represent proficiency ratings.
           </p>
         </motion.div>
 
@@ -54,25 +54,13 @@ export default function Skills() {
                       transition={{ delay: idx * 0.05 }}
                       className="glass-card p-4 rounded-xl border border-white/5 hover:border-cyan-500/40 transition-colors group"
                     >
-                      <div className="flex justify-between items-center mb-2">
+                      <div className="flex justify-between items-center">
                         <span className="font-medium text-lg">{skill.name}</span>
-                        <span className="text-xs text-slate-500 font-mono">{skill.proficiency}%</span>
                       </div>
-                      <div className="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
-                        <div 
-                          className="h-full bg-gradient-to-r from-cyan-600 to-blue-500 group-hover:from-cyan-400 group-hover:to-blue-400 transition-all duration-1000"
-                          style={{ width: `${skill.proficiency}%` }}
-                        />
-                      </div>
+                      <p className="text-xs text-slate-500 mt-2">Used in this portfolio</p>
                     </motion.div>
                   )) : (
-                    // Fallback for visual completeness if DB empty
-                    [1, 2, 3, 4].map(i => (
-                       <div key={i} className="glass-card p-4 rounded-xl border border-white/5 opacity-50">
-                         <div className="h-6 w-24 bg-slate-800 rounded mb-2 animate-pulse" />
-                         <div className="h-1.5 w-full bg-slate-800 rounded-full" />
-                       </div>
-                    ))
+                    <p className="col-span-full text-sm text-slate-500">No technologies verified for this category yet.</p>
                   )}
                 </div>
               </motion.div>

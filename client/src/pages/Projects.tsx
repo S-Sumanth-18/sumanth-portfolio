@@ -1,12 +1,20 @@
-import React from 'react';
+import { useState } from "react";
 import { Navbar } from "../components/Navbar";
 import { PROJECTS, type Project } from "../lib/data";
 import { motion } from "framer-motion";
-import { Github, ExternalLink } from "lucide-react";
+import { Code2, ExternalLink, Github, Info } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "../components/ui/dialog";
 
 export default function Projects() {
   const projects = PROJECTS;
   const isLoading = false;
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
     <div className="min-h-screen bg-background pb-32 pt-24 px-4">
@@ -20,7 +28,7 @@ export default function Projects() {
         >
           <h1 className="text-4xl md:text-6xl font-bold mb-4">All Projects</h1>
           <p className="text-slate-400 max-w-2xl text-lg">
-            A collection of my work in AI, Web Development, and System Design.
+            Work listed here is limited to projects with details available in this portfolio.
           </p>
         </motion.div>
 
@@ -38,15 +46,22 @@ export default function Projects() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.1 }}
-                className="group glass-card rounded-2xl overflow-hidden border border-white/5 hover:border-cyan-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-900/20"
+                className="group glass-card rounded-2xl overflow-hidden border border-white/5 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-500/30 hover:shadow-2xl hover:shadow-cyan-900/20 focus-within:border-cyan-400/40 motion-reduce:transform-none motion-reduce:transition-none"
               >
                 <div className="relative h-48 overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent z-10" />
-                  <img 
-                    src={project.imageUrl || `https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800`}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
+                  {project.imageUrl ? (
+                    <img
+                      src={project.imageUrl}
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-slate-900/80 flex flex-col items-center justify-center gap-3 text-slate-400">
+                      <Code2 className="w-10 h-10 text-cyan-400" />
+                      <span className="text-sm">Project preview not provided</span>
+                    </div>
+                  )}
                   <div className="absolute top-4 right-4 z-20">
                     {project.isFeatured && (
                       <span className="px-2 py-1 rounded bg-cyan-500 text-slate-900 text-xs font-bold shadow-lg">
@@ -99,13 +114,70 @@ export default function Projects() {
                         <ExternalLink className="w-4 h-4" /> Demo
                       </a>
                     )}
+                    {!project.githubUrl && !project.demoUrl && (
+                      <p className="text-xs text-slate-500">Repository and live demo URLs not provided.</p>
+                    )}
                   </div>
+
+                  <button
+                    type="button"
+                    onClick={() => setSelectedProject(project)}
+                    className="mt-4 flex min-h-11 w-full items-center justify-center gap-2 border border-cyan-400/20 bg-cyan-400/5 px-3 text-sm font-medium text-cyan-200 transition-colors hover:border-cyan-300/50 hover:bg-cyan-400/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
+                  >
+                    <Info className="h-4 w-4" aria-hidden="true" />
+                    Inspect project
+                  </button>
                 </div>
               </motion.div>
             ))}
           </div>
         )}
       </div>
+
+      <Dialog open={Boolean(selectedProject)} onOpenChange={(open) => { if (!open) setSelectedProject(null); }}>
+        {selectedProject && (
+          <DialogContent className="max-h-[85dvh] w-[calc(100%-1.25rem)] max-w-2xl overflow-y-auto border-cyan-400/20 bg-[#080f1c] text-slate-100">
+            <DialogHeader className="pr-8 text-left">
+              <p className="font-mono text-[10px] tracking-[0.18em] text-cyan-400">PROJECT FILE / {String(selectedProject.id).padStart(2, "0")}</p>
+              <DialogTitle className="mt-2 text-2xl font-bold sm:text-3xl">{selectedProject.title}</DialogTitle>
+              <DialogDescription className="pt-2 text-sm leading-relaxed text-slate-400">
+                {selectedProject.description}
+              </DialogDescription>
+            </DialogHeader>
+
+            <section className="mt-5" aria-labelledby="project-stack-heading">
+              <div className="mb-3 flex items-center justify-between border-b border-slate-800 pb-2">
+                <h3 id="project-stack-heading" className="font-mono text-xs tracking-wider text-slate-300">TECH STACK</h3>
+                <span className="font-mono text-[10px] text-slate-600">{selectedProject.techStack.length} VERIFIED</span>
+              </div>
+              <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                {selectedProject.techStack.map((technology, technologyIndex) => (
+                  <li key={technology} className="flex min-h-11 items-center gap-3 border border-slate-800 bg-slate-900/60 px-3 text-sm text-slate-300 transition-colors hover:border-cyan-400/30">
+                    <span className="font-mono text-[10px] text-cyan-500/70">{String(technologyIndex + 1).padStart(2, "0")}</span>
+                    {technology}
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            <div className="mt-6 flex flex-wrap gap-3">
+              {selectedProject.githubUrl && (
+                <a href={selectedProject.githubUrl} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center gap-2 border border-slate-700 px-4 text-sm transition-colors hover:border-cyan-400/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">
+                  <Github className="h-4 w-4" aria-hidden="true" /> Source code
+                </a>
+              )}
+              {selectedProject.demoUrl && (
+                <a href={selectedProject.demoUrl} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center gap-2 bg-cyan-400 px-4 text-sm font-medium text-slate-950 transition-colors hover:bg-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200">
+                  <ExternalLink className="h-4 w-4" aria-hidden="true" /> Live demo
+                </a>
+              )}
+              {!selectedProject.githubUrl && !selectedProject.demoUrl && (
+                <p className="font-mono text-xs text-slate-500">No public repository or live demo is listed for this project.</p>
+              )}
+            </div>
+          </DialogContent>
+        )}
+      </Dialog>
     </div>
   );
 }

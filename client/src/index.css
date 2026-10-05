@@ -42,6 +42,11 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-bottom: 7rem;
+  }
+
   body {
     @apply bg-background text-foreground antialiased selection:bg-cyan-500/30 selection:text-cyan-200;
     font-family: var(--font-body);
@@ -58,6 +63,40 @@
   
   code, pre {
     font-family: var(--font-mono);
+  }
+}
+
+.boot-grid {
+  background-image:
+    linear-gradient(rgba(103, 232, 249, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(103, 232, 249, 0.08) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at center, black 10%, transparent 78%);
+}
+
+.boot-scan {
+  background: linear-gradient(180deg, transparent, rgba(103, 232, 249, 0.18), transparent);
+  animation: boot-scan 2.8s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes boot-scan {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(100vh); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
