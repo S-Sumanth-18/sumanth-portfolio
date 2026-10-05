@@ -1,12 +1,11 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import { Bot, Cpu, Send, Sparkles } from "lucide-react";
+import { Bot, Send, Sparkles } from "lucide-react";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "./ui/dialog";
 import { getKnightResponse } from "../lib/knight";
 
@@ -59,18 +58,6 @@ export function KnightAssistant({ open, onOpenChange, initialQuestion, onInitial
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogTrigger asChild>
-        <button
-          type="button"
-          onClick={() => onOpenChange(true)}
-          aria-label="Open K.N.I.G.H.T. assistant"
-          className="fixed bottom-24 right-4 z-40 flex min-h-12 items-center gap-2 border border-cyan-400/30 bg-slate-950/90 px-4 font-mono text-xs text-cyan-200 shadow-lg shadow-black/30 backdrop-blur transition-colors hover:border-cyan-300/70 hover:bg-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 md:bottom-8 md:right-8"
-        >
-          <Cpu className="h-4 w-4" aria-hidden="true" />
-          <span>K.N.I.G.H.T.</span>
-        </button>
-      </DialogTrigger>
-
       <DialogContent className="flex max-h-[min(82dvh,680px)] w-[calc(100%-1.25rem)] max-w-xl flex-col gap-0 overflow-hidden border-cyan-400/20 bg-[#111214] p-0 text-slate-100">
         <DialogHeader className="border-b border-cyan-400/15 px-5 py-4 pr-12 text-left">
           <DialogTitle className="flex items-center gap-2 font-mono text-base tracking-wide text-cyan-200">

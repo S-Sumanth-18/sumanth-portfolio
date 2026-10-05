@@ -59,7 +59,7 @@ export function CommandPalette({ onOpenKnight }: CommandPaletteProps) {
         type="button"
         onClick={() => setIsOpen(true)}
         aria-label="Open command palette, shortcut Control K or Command K"
-        className="fixed bottom-24 left-4 z-40 flex min-h-12 items-center gap-2 border border-slate-600/70 bg-slate-950/90 px-3 font-mono text-xs text-slate-300 shadow-lg shadow-black/30 backdrop-blur transition-colors hover:border-cyan-400/50 hover:text-cyan-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 md:bottom-8 md:left-8"
+        className="fixed right-4 top-16 z-40 flex min-h-12 items-center gap-2 border border-slate-600/70 bg-slate-950/90 px-3 font-mono text-xs text-slate-300 shadow-lg shadow-black/30 backdrop-blur transition-colors hover:border-cyan-400/50 hover:text-cyan-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 sm:right-6 sm:top-[4.5rem]"
       >
         <Command className="h-4 w-4" aria-hidden="true" />
         <span className="hidden sm:inline">COMMAND</span>

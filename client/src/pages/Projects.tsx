@@ -72,6 +72,10 @@ export default function Projects() {
                 </div>
                 
                 <div className="p-6">
+                  <div className="mb-3 flex items-center justify-between gap-2 font-mono text-[10px] tracking-wider text-slate-500">
+                    <span>CASE FILE // {String(project.id).padStart(3, "0")}</span>
+                    <span className="shrink-0">STATUS: {project.isFeatured ? "FEATURED" : "DOCUMENTED"}</span>
+                  </div>
                   <h3 className="text-xl font-bold mb-2 group-hover:text-cyan-400 transition-colors">
                     {project.title}
                   </h3>
@@ -138,7 +142,7 @@ export default function Projects() {
         {selectedProject && (
           <DialogContent className="max-h-[85dvh] w-[calc(100%-1.25rem)] max-w-2xl overflow-y-auto border-cyan-400/20 bg-[#111214] text-slate-100">
             <DialogHeader className="pr-8 text-left">
-              <p className="font-mono text-[10px] tracking-[0.18em] text-cyan-400">PROJECT FILE / {String(selectedProject.id).padStart(2, "0")}</p>
+              <p className="font-mono text-[10px] tracking-[0.18em] text-cyan-400">CASE FILE // {String(selectedProject.id).padStart(3, "0")}</p>
               <DialogTitle className="mt-2 text-2xl font-bold sm:text-3xl">{selectedProject.title}</DialogTitle>
               <DialogDescription className="pt-2 text-sm leading-relaxed text-slate-400">
                 {selectedProject.description}

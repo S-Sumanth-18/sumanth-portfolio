@@ -80,6 +80,18 @@
   pointer-events: none;
 }
 
+.system-online-dot {
+  animation: system-online-pulse 3s ease-in-out infinite;
+  box-shadow: 0 0 7px rgba(212, 212, 216, 0.28);
+}
+
+@keyframes system-online-pulse {
+  50% {
+    opacity: 0.62;
+    box-shadow: 0 0 3px rgba(212, 212, 216, 0.16);
+  }
+}
+
 @keyframes boot-scan {
   from { transform: translateY(-100%); }
   to { transform: translateY(100vh); }

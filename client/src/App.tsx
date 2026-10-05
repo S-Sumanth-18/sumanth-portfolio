@@ -4,6 +4,7 @@ import { Switch, Route } from "wouter";
 import { BootSequence } from "./components/BootSequence";
 import { KnightAssistant } from "./components/KnightAssistant";
 import { CommandPalette } from "./components/CommandPalette";
+import { KnightSystemStatus } from "./components/KnightSystemStatus";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Skills from "./pages/Skills";
@@ -51,6 +52,7 @@ function App() {
           <Route path="/contact" component={Contact} />
           <Route component={NotFound} />
         </Switch>
+        <KnightSystemStatus onClick={() => openKnight()} />
         <CommandPalette onOpenKnight={openKnight} />
         <KnightAssistant
           open={knightOpen}

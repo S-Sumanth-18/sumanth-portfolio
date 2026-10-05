@@ -21,7 +21,7 @@ export default function Skills() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">Portfolio Stack</h1>
+          <h1 className="text-4xl md:text-6xl font-bold mb-4">Technical Arsenal</h1>
           <p className="text-slate-400 max-w-2xl mx-auto text-lg">
             Technologies present in this site's source code. This list does not represent proficiency ratings.
           </p>
